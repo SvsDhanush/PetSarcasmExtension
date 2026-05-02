@@ -1,0 +1,99 @@
+{
+  "name": "pet-review-judge",
+  "displayName": "Pet Sarcasm 🐾",
+  "description": "An adorable pet walks in, judges your code errors with sarcasm, and leaves. Featuring a Cat and a Dog.",
+  "version": "1.0.0",
+  "publisher": "SvsDhanush",
+  "icon": "media/animal-icon.png",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "pet",
+    "dog",
+    "cat",
+    "fun",
+    "humor",
+    "error",
+    "poop"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SvsDhanush/PetJudgeExtension.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SvsDhanush/PetJudgeExtension/issues"
+  },
+  "homepage": "https://github.com/SvsDhanush/PetJudgeExtension#readme",
+  "activationEvents": [
+    "onStartupFinished",
+    "onCommand:petJudge.triggerPoop",
+    "onCommand:petJudge.toggleActive",
+    "onView:petJudge.sidebarView"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "pet-judge-container",
+          "title": "Pet Sarcasm",
+          "icon": "media/animal-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "pet-judge-container": [
+        {
+          "type": "webview",
+          "id": "petJudge.sidebarView",
+          "name": "Pet Sarcasm 🐾",
+          "visibility": "visible"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "petJudge.triggerPoop",
+        "title": "Pet Judge: Trigger Animation (Test)"
+      },
+      {
+        "command": "petJudge.toggleActive",
+        "title": "Pet Judge: Toggle On/Off"
+      }
+    ],
+    "configuration": {
+      "title": "Pet Judge",
+      "properties": {
+        "petJudge.autoOpenSidebar": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically open the Pet Judge sidebar when a new error occurs."
+        },
+        "petJudge.defaultCharacter": {
+          "type": "string",
+          "default": "dog",
+          "enum": [
+            "dog",
+            "cat",
+            "random"
+          ],
+          "description": "The default pet character to display."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.90.0",
+    "typescript": "^5.3.0"
+  }
+}
