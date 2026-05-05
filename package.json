@@ -2,7 +2,7 @@
   "name": "pet-review-judge",
   "displayName": "Pet Sarcasm 🐾",
   "description": "An adorable pet walks in, judges your code errors with sarcasm, and leaves. Featuring a Cat and a Dog.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "SvsDhanush",
   "icon": "media/animal-icon.png",
   "engines": {
@@ -36,17 +36,8 @@
   ],
   "main": "./out/extension.js",
   "contributes": {
-    "viewsContainers": {
-      "activitybar": [
-        {
-          "id": "pet-judge-container",
-          "title": "Pet Sarcasm",
-          "icon": "media/animal-icon.svg"
-        }
-      ]
-    },
     "views": {
-      "pet-judge-container": [
+      "explorer": [
         {
           "type": "webview",
           "id": "petJudge.sidebarView",

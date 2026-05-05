@@ -524,10 +524,34 @@ export class PetJudgeSidebarProvider implements vscode.WebviewViewProvider {
       'This code is struggling, dude!!',
       'Unacceptable. Fix it...',
       'Try again, human...',
-      'This needs a reboot… of logic 🔄'
+      'This needs a reboot… of logic 🔄',
+      'Error 1000: Developer missing 🧠',
+      'This code needs an adult 🧑‍⚖️',
+      'Even bugs are confused 🐛❓',
+      'This is not production, this is destruction 💣',
+      'This code has trust issues 😤',
+      'I’m not mad, just disappointed 😔',
+      'Try rebooting your brain 🔄',
+      'My paws are cleaner than this code ✨',
+      'Error 404: Talent not found 🔍',
+      'My ancestors would be ashamed of this lineage 📜',
+      'I lost brain cells reading this 🧠',
+      'This belongs in the trash branch 🗑️'
     ];
 
     let busy = false;
+    let poopTimeout;
+    let poopCleanupTimeout;
+
+    function resetPoop() {
+      clearTimeout(poopTimeout);
+      clearTimeout(poopCleanupTimeout);
+      poop.classList.remove('show');
+      poop.style.transition = 'none';
+      poop.style.opacity    = '';
+      poop.style.transform  = '';
+      stinks.forEach(s => s.classList.remove('rise'));
+    }
 
     function rand(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
 
@@ -555,8 +579,7 @@ export class PetJudgeSidebarProvider implements vscode.WebviewViewProvider {
       setTimeout(() => document.body.classList.remove('flash'), 500);
 
       // reset poop
-      poop.classList.remove('show');
-      stinks.forEach(s => { s.classList.remove('rise'); });
+      resetPoop();
 
       // ── 1. WALK IN ──────────────────────────────────────────
       setState('walking');
@@ -586,7 +609,6 @@ export class PetJudgeSidebarProvider implements vscode.WebviewViewProvider {
 
           // ── 3. DROP POOP ──────────────────────────────────
           setTimeout(() => {
-            poop.show;
             poop.classList.add('show');
 
             // stink lines
@@ -618,12 +640,12 @@ export class PetJudgeSidebarProvider implements vscode.WebviewViewProvider {
                 busy = false;
 
                 // fade poop out after 6s
-                setTimeout(() => {
+                poopTimeout = setTimeout(() => {
                   stinks.forEach(s => s.classList.remove('rise'));
                   poop.style.transition = 'opacity 1.2s, transform 1.2s';
                   poop.style.opacity    = '0';
                   poop.style.transform  = 'translateX(-50%) translateY(10px) scale(0.5)';
-                  setTimeout(() => {
+                  poopCleanupTimeout = setTimeout(() => {
                     poop.classList.remove('show');
                     poop.style.transition = '';
                     poop.style.opacity    = '';
