@@ -89,7 +89,15 @@ export function activate(context: vscode.ExtensionContext) {
   );
 }
 
+let lastPoopTime = 0;
+
 function triggerPoop() {
+  const now = Date.now();
+  if (now - lastPoopTime < 3000) { 
+    return; 
+  }
+  lastPoopTime = now;
+
   if (sidebarProvider) {
     sidebarProvider.triggerPoopAnimation();
   }

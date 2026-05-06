@@ -1,8 +1,8 @@
 {
   "name": "pet-review-judge",
   "displayName": "Pet Sarcasm 🐾",
-  "description": "An adorable pet walks in, judges your code errors with sarcasm, and leaves. Featuring a Cat and a Dog.",
-  "version": "1.0.2",
+  "description": "An adorable pet roams your sidebar and judges your code errors with sarcasm. (Note: Terminal detection requires Shell Integration).",
+  "version": "2.0.0",
   "publisher": "SvsDhanush",
   "icon": "media/animal-icon.png",
   "engines": {
@@ -69,8 +69,7 @@
           "default": "dog",
           "enum": [
             "dog",
-            "cat",
-            "random"
+            "cat"
           ],
           "description": "The default pet character to display."
         }

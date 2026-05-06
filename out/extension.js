@@ -67,7 +67,13 @@ function activate(context) {
         vscode.window.showInformationMessage(isActive ? '🐾 Pet Judge is on duty.' : '💤 Pet Judge is napping.');
     }));
 }
+let lastPoopTime = 0;
 function triggerPoop() {
+    const now = Date.now();
+    if (now - lastPoopTime < 3000) {
+        return;
+    }
+    lastPoopTime = now;
     if (sidebarProvider) {
         sidebarProvider.triggerPoopAnimation();
     }
